@@ -25,14 +25,14 @@ def vcard_to_nameshark(text, group_name):
             surname = full_name.split(" ")[1]
         
         if photo is not None:
-            photoData = base64.b64encode(photo)
-            photoData = "data:image/jpeg;base64," + photoData
+            photo_data = base64.b64encode(photo)
+            photo_data = "data:image/jpeg;base64," + photo_data
         else:
             print("Warning: Missing photo for " + full_name + "...!")
-            photoData = ""
+            photo_data = ""
         
         entry = {"first": first_name, "last": surname, 
-                 "photoData": photoData, "details":""}
+                 "photoData": photo_data, "details":""}
 
         shark["contacts"].append(entry)
     
