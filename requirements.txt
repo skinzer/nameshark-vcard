@@ -1,0 +1,2 @@
+vobject == 0.9.2
+probablepeople == 0.5
