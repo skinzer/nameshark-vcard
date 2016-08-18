@@ -22,7 +22,11 @@ def vcard_to_nameshark(text, group_name):
         if 'Surname' in full_name_dict:
             surname = full_name_dict['Surname']
         else:
-            surname = full_name.split(" ")[1]
+            names = full_name.split(" ")
+            if len(names) > 1:
+                surname = names[1]
+            else:
+                surname = ""
         
         if photo is not None:
             photo_data = base64.b64encode(photo)
