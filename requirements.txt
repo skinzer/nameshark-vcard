@@ -7,7 +7,7 @@
 doublemetaphone==0.1
 future==0.15.2
 probableparsing==0.0.1
-probablepeople==0.5
+probablepeople==0.5.2
 python-crfsuite==0.8.4
 python-dateutil==2.5.3
 six==1.10.0
