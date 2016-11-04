@@ -1,5 +1,7 @@
 """Convert vCard-formatted string to the JSON format expected by Name Shark."""
+
 # coding=utf-8
+
 import base64
 import json
 from collections import namedtuple
@@ -11,7 +13,7 @@ import probablepeople as pp
 Names = namedtuple('Names', ['first_name', 'surname'])
 
 
-def get_names(fn: str) -> Names:
+def get_names(fn):
     """
     Extract the first name and surname from a vCard 'fn' field.
 
@@ -21,7 +23,6 @@ def get_names(fn: str) -> Names:
     >>> get_names('John Smith')
     Names(first_name='John', surname='Smith')
     """
-
     # Use probablepeople to tag the parts of the name.
     full_name_dict = pp.tag(fn)[0]
 
@@ -30,7 +31,7 @@ def get_names(fn: str) -> Names:
         first_name = full_name_dict['GivenName']
     else:
         # Otherwise, assume it's the first part of the string.
-        first_name = full_name.split(" ")[0]
+        first_name = fn.split(" ")[0]
 
     if 'Surname' in full_name_dict:
         # If probablepeople has successfully extracted the surname, use it.
@@ -48,7 +49,7 @@ def get_names(fn: str) -> Names:
     return names
 
 
-def get_photo(photo: str) -> Names:
+def get_photo(photo):
     """
     Extract the photo data (if it exists) from a vCard 'photo' field.
 
@@ -56,7 +57,6 @@ def get_photo(photo: str) -> Names:
     :return: a base64-encoded string containing the photo data.
     """
     # TODO: Add doctest above? or pytest
-
     if photo is not None:
         photo_data = base64.b64encode(photo)
         photo_data = "data:image/jpeg;base64," + photo_data
@@ -66,16 +66,16 @@ def get_photo(photo: str) -> Names:
     return photo_data
 
 
-def extract_contact_from_component(v: vobject.Component) -> dict:
+def extract_contact_from_component(component):
     """
     Extract the contact info from a vCard component.
 
-    :param v: the input vCard component text.
+    :param component: the input vCard component text.
     :return: a dictionary containing the extracted contact info.
     """
     # TODO: Add doctest above? or pytest
-    names = get_names(v.getChildValue('fn'))
-    photo_data = get_photo(v.getChildValue('photo'))
+    names = get_names(component.getChildValue('fn'))
+    photo_data = get_photo(component.getChildValue('photo'))
 
     if photo_data == "":
         print("Warning: Missing photo for " + names.first_name + " " +
@@ -87,7 +87,7 @@ def extract_contact_from_component(v: vobject.Component) -> dict:
     return entry
 
 
-def extract_contacts_from_vcard(vcard: str) -> list:
+def extract_contacts_from_vcard(vcard):
     """
     Extract the contact info from a vCard.
 
@@ -104,7 +104,7 @@ def extract_contacts_from_vcard(vcard: str) -> list:
     return entry
 
 
-def convert_to_nameshark(contacts: list, group_name: str, ) -> str:
+def convert_to_nameshark(contacts, group_name):
     """
     Convert a list containing contact info into JSON for Name Shark.
 
@@ -119,7 +119,7 @@ def convert_to_nameshark(contacts: list, group_name: str, ) -> str:
     return json_str
 
 
-def vcard_to_nameshark(vcard: str, group_name: str) -> str:
+def vcard_to_nameshark(vcard, group_name):
     """
     Convert vCard-formatted string to the JSON format expected by Name Shark.
 
@@ -134,7 +134,7 @@ def vcard_to_nameshark(vcard: str, group_name: str) -> str:
     return json_str
 
 
-def main() -> None:
+def main():
     """
     The main nameshark_vcard module.
 
