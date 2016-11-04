@@ -24,6 +24,9 @@ install:
 #- python setup.py install
 #- python setup.py develop
 #- make all
+script:
+- echo "script"
+- pytest
 after_success:
 #- coveralls
 #- codecov
