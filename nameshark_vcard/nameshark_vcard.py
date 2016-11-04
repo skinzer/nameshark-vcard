@@ -56,7 +56,6 @@ def get_photo(photo: str) -> Names:
     :return: a base64-encoded string containing the photo data.
     """
     # TODO: Add doctest above? or pytest
-    photo =
 
     if photo is not None:
         photo_data = base64.b64encode(photo)
