@@ -11,20 +11,19 @@ import probablepeople as pp
 Names = namedtuple('Names', ['first_name', 'surname'])
 
 
-def get_names(v: vobject.Component) -> Names:
+def get_names(fn: str) -> Names:
     """
-    Extract the first name and surname from a vCard component.
+    Extract the first name and surname from a vCard 'fn' field.
 
-    :param v: the input vCard component text.
+    :param fn: the input vCard 'fn' field.
     :return: a namedtuple containing the first name and surname.
+    
+    >>> get_names('John Smith')
+    Names(first_name='John', surname='Smith')
     """
-    # TODO: Add doctest above.
-
-    # Get the full name field from the vCard.
-    full_name = v.getChildValue('fn')
 
     # Use probablepeople to tag the parts of the name.
-    full_name_dict = pp.tag(full_name)[0]
+    full_name_dict = pp.tag(fn)[0]
 
     if 'GivenName' in full_name_dict:
         # If probablepeople has successfully extracted the first name, use it.
@@ -38,7 +37,7 @@ def get_names(v: vobject.Component) -> Names:
         surname = full_name_dict['Surname']
     else:
         # Otherwise, assume it's the second part of the string, if it exists.
-        names = full_name.split(" ")
+        names = fn.split(" ")
         if len(names) > 1:
             surname = names[1]
         else:
@@ -49,15 +48,15 @@ def get_names(v: vobject.Component) -> Names:
     return names
 
 
-def get_photo(v: vobject.Component) -> Names:
+def get_photo(photo: str) -> Names:
     """
-    Extract the photo data (if it exists) from a vCard component.
+    Extract the photo data (if it exists) from a vCard 'photo' field.
 
-    :param v: the input vCard component text.
+    :param photo: the input vCard 'photo' field.
     :return: a base64-encoded string containing the photo data.
     """
     # TODO: Add doctest above? or pytest
-    photo = v.getChildValue('photo')
+    photo = 
 
     if photo is not None:
         photo_data = base64.b64encode(photo)
@@ -76,8 +75,8 @@ def extract_contact_from_component(v: vobject.Component) -> dict:
     :return: a dictionary containing the extracted contact info.
     """
     # TODO: Add doctest above? or pytest
-    names = get_names(v)
-    photo_data = get_photo(v)
+    names = get_names(v.getChildValue('fn'))
+    photo_data = get_photo(v.getChildValue('photo'))
 
     if photo_data == "":
         print("Warning: Missing photo for " + names.first_name + " " +
