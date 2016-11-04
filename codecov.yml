@@ -1,0 +1,9 @@
+codecov:
+  branch: master
+  bot: proinsias
+
+coverage:
+  notify:
+    slack:
+      default:
+        url: https://hooks.slack.com/services/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
