@@ -40,6 +40,8 @@ def get_names(fn):
             surname = full_name_dict['Surname']
     except ImportError:
         pass
+    except SyntaxError:
+        pass
 
     fn_split = fn.split(" ")
 
