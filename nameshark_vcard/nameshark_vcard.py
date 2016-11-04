@@ -8,7 +8,6 @@ from collections import namedtuple
 
 import argparse
 import vobject
-import probablepeople as pp
 
 Names = namedtuple('Names', ['first_name', 'surname'])
 
@@ -23,24 +22,37 @@ def get_names(fn):
     >>> get_names('John Smith')
     Names(first_name='John', surname='Smith')
     """
-    # Use probablepeople to tag the parts of the name.
-    full_name_dict = pp.tag(fn)[0]
+    first_name = None
+    surname = None
 
-    if 'GivenName' in full_name_dict:
-        # If probablepeople has successfully extracted the first name, use it.
-        first_name = full_name_dict['GivenName']
-    else:
-        # Otherwise, assume it's the first part of the string.
-        first_name = fn.split(" ")[0]
+    try:
+        import probablepeople as pp  # not python 2.6 compatible
+        # Use probablepeople to tag the parts of the name.
+        full_name_dict = pp.tag(fn)[0]
 
-    if 'Surname' in full_name_dict:
-        # If probablepeople has successfully extracted the surname, use it.
-        surname = full_name_dict['Surname']
-    else:
-        # Otherwise, assume it's the second part of the string, if it exists.
-        names = fn.split(" ")
-        if len(names) > 1:
-            surname = names[1]
+        if 'GivenName' in full_name_dict:
+            # If probablepeople has successfully extracted the first name,
+            # use it.
+            first_name = full_name_dict['GivenName']
+
+        if 'Surname' in full_name_dict:
+            # If probablepeople has successfully extracted the surname, use it.
+            surname = full_name_dict['Surname']
+    except ImportError:
+        pass
+
+    fn_split = fn.split(" ")
+
+    if first_name is None:
+        # If we can't get first name from probablepeople, assume it's the
+        # first part of the string.
+        first_name = fn_split[0]
+
+    if surname is None:
+        # If we can't get surname from probablepeople, assume it's the
+        # second part of the string, if that exists.
+        if len(fn_split) > 1:
+            surname = fn_split[1]
         else:
             surname = ""
 
