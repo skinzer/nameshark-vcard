@@ -17,7 +17,7 @@ def get_names(fn: str) -> Names:
 
     :param fn: the input vCard 'fn' field.
     :return: a namedtuple containing the first name and surname.
-    
+
     >>> get_names('John Smith')
     Names(first_name='John', surname='Smith')
     """
@@ -56,7 +56,6 @@ def get_photo(photo: str) -> Names:
     :return: a base64-encoded string containing the photo data.
     """
     # TODO: Add doctest above? or pytest
-    photo = 
 
     if photo is not None:
         photo_data = base64.b64encode(photo)
