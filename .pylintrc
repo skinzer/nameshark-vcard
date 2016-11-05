@@ -23,7 +23,7 @@ persistent=yes
 load-plugins=
 
 # Use multiple processes to speed up Pylint.
-jobs=1
+jobs=4
 
 # Allow loading of arbitrary C extensions. Extensions are imported into the
 # active Python interpreter and may run arbitrary code.
@@ -65,7 +65,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=using-cmp-argument,unpacking-in-except,xrange-builtin,old-raise-syntax,backtick,print-statement,import-star-module-level,coerce-builtin,old-division,reduce-builtin,unicode-builtin,cmp-method,long-suffix,getslice-method,raising-string,coerce-method,unichr-builtin,standarderror-builtin,apply-builtin,suppressed-message,execfile-builtin,next-method-called,round-builtin,basestring-builtin,file-builtin,range-builtin-not-iterating,cmp-builtin,zip-builtin-not-iterating,input-builtin,nonzero-method,setslice-method,long-builtin,parameter-unpacking,hex-method,indexing-exception,old-ne-operator,oct-method,buffer-builtin,delslice-method,reload-builtin,no-absolute-import,intern-builtin,metaclass-assignment,map-builtin-not-iterating,useless-suppression,old-octal-literal,dict-iter-method,filter-builtin-not-iterating,dict-view-method,raw_input-builtin
+#disable=using-cmp-argument,unpacking-in-except,xrange-builtin,old-raise-syntax,backtick,print-statement,import-star-module-level,coerce-builtin,old-division,reduce-builtin,unicode-builtin,cmp-method,long-suffix,getslice-method,raising-string,coerce-method,unichr-builtin,standarderror-builtin,apply-builtin,suppressed-message,execfile-builtin,next-method-called,round-builtin,basestring-builtin,file-builtin,range-builtin-not-iterating,cmp-builtin,zip-builtin-not-iterating,input-builtin,nonzero-method,setslice-method,long-builtin,parameter-unpacking,hex-method,indexing-exception,old-ne-operator,oct-method,buffer-builtin,delslice-method,reload-builtin,no-absolute-import,intern-builtin,metaclass-assignment,map-builtin-not-iterating,useless-suppression,old-octal-literal,dict-iter-method,filter-builtin-not-iterating,dict-view-method,raw_input-builtin
 
 
 [REPORTS]

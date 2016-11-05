@@ -35,7 +35,7 @@ Converts vCards to the JSON format expected by the Name Shark app
 [![Libraries.io GitHub](https://img.shields.io/librariesio/github/proinsias/nameshark-vcard.svg)]()
 
 As you can tell from the number of badges above, I'm using this toy
-project to exteriment with various services prior to deploying them in
+project to experiment with various services prior to deploying them in
 my private repos. If you have a favorite service that I'm missing,
 feel free to create an issue!
 
