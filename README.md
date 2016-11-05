@@ -39,4 +39,16 @@ project to exteriment with various services prior to deploying them in
 my private repos. If you have a favorite service that I'm missing,
 feel free to create an issue!
 
-
+* Python Versions Tested:
+    - 2.7 (via Travis & AppVeyor)
+    - 3.4 (via Travis & AppVeyor)
+    - 3.5 (via Travis & AppVeyor)
+    - 3.5-dev (via Travis)
+    - 3.6-dev (via Travis)
+    - nightly (via Travis)
+    - pypy (via Travis)
+    - pypy3 (via Travis)
+* Platforms Tested:
+    - Ubuntu 12.04 LTS Server Edition 64 bit (via Travis)
+    - x86 (via AppVeyor)
+    - x64 (via AppVeyor)

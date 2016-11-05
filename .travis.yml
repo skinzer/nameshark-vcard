@@ -1,37 +1,55 @@
-sudo: false
+sudo: false  # Use container-based infrastructure
+
 language: python
+
 python:
-- '2.6'
-- '2.7'
-- '3.4'
-- '3.5'
+  - '2.7'
+  - '3.4'
+  - '3.5'
+  - '3.5-dev'  # 3.5 development branch
+  - '3.6-dev'  # 3.6 development branch
+  - 'nightly'  # currently points to 3.7-dev
+  - 'pypy'
+  - 'pypy3'
+
+matrix:
+  allow_failures:
+    - python: '3.5-dev'
+    - python: '3.6-dev'
+    - python: 'nightly'
+    - python: 'pypy'
+    - python: 'pypy3'
+
 before_install:
-- echo "before_install"
-- echo $VIRTUAL_ENV
-- export PATH="$HOME/miniconda/bin:$PATH"
-- df -h
-- date
-- pwd
-- uname -a
-- python -V
-- free -m
-- ulimit -a
-- git --version
-- git tag
-- pip install --upgrade pip
-#- pip install codecov coverage flake8  # ?
+  - echo "before_install"
+  - echo $VIRTUAL_ENV
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - df -h
+  - date
+  - pwd
+  - uname -a
+  - python -V
+  - free -m
+  - ulimit -a
+  - git --version
+  - git tag
+  - python -m pip install -U pip
+
 install:
-- echo "install start"
-- pip install -r requirements.txt
-#- python setup.py install
-#- python setup.py develop
-#- make all
+  - echo "install start"
+  - pip install -r requirements.txt
+  #- python setup.py install
+  #- python setup.py develop
+  #- make all
+
 script:
-- echo "script"
-- pytest
+  - echo "script"
+  - python -m pytest  # Use pyenv python to launch pytest
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 #- coveralls
+
 notifications:
   email:
     recipients:
