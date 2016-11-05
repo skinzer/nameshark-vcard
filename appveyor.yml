@@ -1,0 +1,9 @@
+version: 1.0.{build}
+build:
+  verbosity: minimal
+notifications:
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: true
