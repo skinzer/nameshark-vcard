@@ -6,7 +6,7 @@ Converts vCards to the JSON format expected by the Name Shark app
 [![GitHub forks](https://img.shields.io/github/forks/proinsias/nameshark-vcard.svg?style=social&label=Fork)]()
 [![GitHub stars](https://img.shields.io/github/stars/proinsias/nameshark-vcard.svg?style=social&label=Star)]()
 [![GitHub watchers](https://img.shields.io/github/watchers/proinsias/nameshark-vcard.svg?style=social&label=Watch)]()
-[![GitHub followers](https://img.shields.io/github/followers/prionsias.svg?style=social&label=Follow)]()
+[![GitHub followers](https://img.shields.io/github/followers/proinsias.svg?style=social&label=Follow)]()
 [![GitHub issues](https://img.shields.io/github/issues/proinsias/nameshark-vcard.svg)]()
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/proinsias/nameshark-vcard.svg)]()
 [![GitHub contributors](https://img.shields.io/github/contributors/proinsias/nameshark-vcard.svg)]()
@@ -14,6 +14,7 @@ Converts vCards to the JSON format expected by the Name Shark app
 
 [![Travis Build](https://travis-ci.org/proinsias/nameshark-vcard.svg?branch=master)](https://travis-ci.org/proinsias/nameshark-vcard)
 [![Scrutinizer Build](https://scrutinizer-ci.com/g/proinsias/nameshark-vcard/badges/build.png?b=master)](https://scrutinizer-ci.com/g/proinsias/nameshark-vcard/build-status/master)
+[![AppVeyor Build](https://ci.appveyor.com/api/projects/status/0ta82u4piyao3ayg?svg=true)](https://ci.appveyor.com/project/proinsias/nameshark-vcard)
 
 [![Codecov Coverage](https://codecov.io/gh/proinsias/nameshark-vcard/branch/master/graph/badge.svg)](https://codecov.io/gh/proinsias/nameshark-vcard)
 [![Code Climate Coverage](https://codeclimate.com/github/proinsias/nameshark-vcard/badges/coverage.svg)](https://codeclimate.com/github/proinsias/nameshark-vcard/coverage)
