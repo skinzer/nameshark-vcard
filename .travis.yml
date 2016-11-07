@@ -6,11 +6,81 @@ branches:
   - production
   - develop
 
-language: python
+language: generic
 
-python:
-  - "2.7"
-  - "3.5"
+matrix:
+  include:
+    - os: linux
+      env: PYTHON='2.7.12'  # pyenv requres a full version specifier
+    - os: linux
+      env: PYTHON='3.4.5'
+    - os: linux
+      env: PYTHON='3.5.2'
+    - os: linux
+      env: PYTHON='3.5-dev'  # 3.5 development branch
+    - os: linux
+      env: PYTHON='3.6-dev'  # 3.6 development branch
+    - os: linux
+      env: PYTHON='pypy-5.4.1'
+    - os: linux
+      env: PYTHON='pypy2-5.4.1'
+# Wait until pypy3-3
+#    - os: linux
+#      env: PYTHON='pypy3-2.4.0'
+    - os: linux
+      env: PYTHON='miniconda2-latest'
+    - os: linux
+      env: PYTHON='miniconda3-latest'
+    - os: osx
+      env: PYTHON='2.7.12'
+    - os: osx
+      env: PYTHON='3.4.5'
+    - os: osx
+      env: PYTHON='3.5.2'
+    - os: osx
+      env: PYTHON='3.5-dev'
+    - os: osx
+      env: PYTHON='3.6-dev'
+    - os: osx
+      env: PYTHON='pypy-5.4.1'
+    - os: osx
+      env: PYTHON='pypy2-5.4.1'
+# Wait until pypy3-3
+#    - os: osx
+#      env: PYTHON='pypy3-2.4.0'
+    - os: osx
+      env: PYTHON='miniconda2-latest'
+    - os: osx
+      env: PYTHON='miniconda3-latest'
+  allow_failures:
+    - os: linux
+      env: PYTHON='3.5-dev'
+    - os: linux
+      env: PYTHON='3.6-dev'
+    - os: linux
+      env: PYTHON='pypy-5.4.1'
+    - os: linux
+      env: PYTHON='pypy2-5.4.1'
+#    - os: linux
+#      env: PYTHON='pypy3-2.4.0'
+    - os: linux
+      env: PYTHON='miniconda2-latest'
+    - os: linux
+      env: PYTHON='miniconda3-latest'
+    - os: osx
+      env: PYTHON='3.5-dev'
+    - os: osx
+      env: PYTHON='3.6-dev'
+    - os: osx
+      env: PYTHON='pypy-5.4.1'
+    - os: osx
+      env: PYTHON='pypy2-5.4.1'
+#    - os: osx
+#      env: PYTHON='pypy3-2.4.0'
+    - os: osx
+      env: PYTHON='miniconda2-latest'
+    - os: osx
+      env: PYTHON='miniconda3-latest'
 
 before_install:
  - echo "before_install"
@@ -21,6 +91,15 @@ before_install:
  - uname -a
  - git --version
  - git tag
+# Install pyenv
+ - export PYENV_VERSION=$PYTHON
+ - export PATH="/home/travis/.pyenv/bin:/Users/travis/.pyenv/shims:${PATH}"
+ - curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+ - eval "$(pyenv init -)"
+ - eval "$(pyenv virtualenv-init -)"
+ - pyenv install $PYTHON
+ - pyenv virtualenv venv
+ - source activate venv
  - python --version
  - python -m pip install -U pip
 
