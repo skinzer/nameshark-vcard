@@ -39,6 +39,13 @@ project to experiment with various services prior to deploying them in
 my private repos. If you have a favorite service that I'm missing,
 feel free to create an issue!
 
+Branch Organization
+------------
+
+    ├── production        <- Production branch with full test set.
+    ├── develop           <- Development branch with reduced test set.
+    └── developer/change  <- Developer sandbox branches without testing.
+
 * Python Versions Tested:
     - 2.7 (via Travis & AppVeyor)
     - 3.4 (via Travis & AppVeyor)
