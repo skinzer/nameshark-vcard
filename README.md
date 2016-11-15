@@ -57,7 +57,7 @@ Branch Organization
 * Python Versions Tested:
     - 2.7 (via Travis & AppVeyor)
     - 3.4 (via Travis & AppVeyor)
-    - 3.5 (via Travis & AppVeyor)
+    - 3.5 (via Travis)
     - 3.5-dev (via Travis)
     - 3.6-dev (via Travis)
     - nightly (via Travis)

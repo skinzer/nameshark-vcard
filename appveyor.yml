@@ -18,17 +18,18 @@ environment:
       PYTHON_VERSION: "3.4.x"
       PYTHON_ARCH: "32"
 
-    - PYTHON: "C:\\Python34-x64"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "64"
+# http://stackoverflow.com/q/36730315
+#    - PYTHON: "C:\\Python34-x64"
+#      PYTHON_VERSION: "3.4.x"
+#      PYTHON_ARCH: "64"
 
-    - PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "32"
+#    - PYTHON: "C:\\Python35"
+#      PYTHON_VERSION: "3.5.x"
+#      PYTHON_ARCH: "32"
 
-    - PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "64"
+#    - PYTHON: "C:\\Python35-x64"
+#      PYTHON_VERSION: "3.5.x"
+#      PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Miniconda"
       PYTHON_VERSION: "2.7.x"
@@ -38,21 +39,21 @@ environment:
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "64"
 
-    - PYTHON: "C:\\Miniconda3"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "32"
-
-    - PYTHON: "C:\\Miniconda3-x64"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "64"
-
-    - PYTHON: "C:\\Miniconda35"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "32"
-
-    - PYTHON: "C:\\Miniconda35-x64"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "64"
+#    - PYTHON: "C:\\Miniconda3"
+#      PYTHON_VERSION: "3.4.x"
+#      PYTHON_ARCH: "32"
+#
+#    - PYTHON: "C:\\Miniconda3-x64"
+#      PYTHON_VERSION: "3.4.x"
+#      PYTHON_ARCH: "64"
+#
+#    - PYTHON: "C:\\Miniconda35"
+#      PYTHON_VERSION: "3.5.x"
+#      PYTHON_ARCH: "32"
+#
+#    - PYTHON: "C:\\Miniconda35-x64"
+#      PYTHON_VERSION: "3.5.x"
+#      PYTHON_ARCH: "64"
 
 #matrix:
 #    fast_finish: true
