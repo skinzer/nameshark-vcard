@@ -19,6 +19,8 @@ before_install:
  - date
  - pwd
  - uname -a
+ - git config --global user.email "travis@travis.ci"
+ - git config --global user.name "Travis CI"
  - git --version
  - git tag
  - python --version
@@ -26,6 +28,7 @@ before_install:
 
 install:
  - echo "install start"
+ - gem install overcommit
  - python -m pip install -r requirements.txt
 #  - python setup.py install
 #  - python setup.py develop
@@ -33,6 +36,7 @@ install:
 
 script:
  - echo "script"
+ - overcommit --run
  - python -m pytest  # Use pyenv python to launch pytest
 
 after_success:

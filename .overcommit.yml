@@ -12,6 +12,22 @@
 #
 # For a complete list of options that you can use to customize hooks, see:
 # https://github.com/brigade/overcommit#configuration
+#
+# required:     If true, this hook cannot be skipped via the SKIP environment variable
+# quiet:        If true, this hook does not display any output unless it warns/fails
+# description:  Message displayed while hook is running.
+#
+# Within a hook category, there is a special type of hook configuration that applies to
+# all hooks in the category. This configuration looks like a normal hook configuration,
+# except it has the name ALL:
+#
+#PreCommit:
+#  ALL:
+#    problem_on_unmodified_line: warn
+#    requires_files: true
+#    required: false
+#    quiet: false
+
 
 PreCommit:
   BashSyntax:
@@ -33,6 +49,11 @@ PreCommit:
       - 'scripts/bash_syntax.sh'
       - 'scripts/copyright_year.sh'
       - 'scripts/freespace.sh'
+  FixMe:
+    enabled: true
+  ForbiddenBranches:
+    enabled: true
+    branches: ['production']
   HardTabs:
     enabled: true
   HtmlHint:
@@ -49,19 +70,24 @@ PreCommit:
     enabled: true
   JsonSyntax:
     enabled: true
+  LicenseHeader:
+    enabled: true
+    license_file: 'LICENSE'
+  LineEndings:
+    enabled: true
+  Mdl:
+    enabled: true
   Pep257:
     enabled: true
   Pep8:
     enabled: true
+    flags: ['--max-line-length=120']
   Pyflakes:
     enabled: true
+    flags: ['--max-line-length=120']
   Pylint:
     enabled: true
   PythonFlake8:
-    enabled: true
-  SemiStandard:
-    enabled: true
-  Standard:
     enabled: true
   ShellCheck:
     enabled: true
@@ -78,6 +104,8 @@ PreCommit:
   XmlLint:
     enabled: true
   XmlSyntax:
+    enabled: true
+  YamlLint:
     enabled: true
   YamlSyntax:
     enabled: true
@@ -128,6 +156,7 @@ PostRewrite:
 PrePush:
   ProtectedBranches:
     enabled: true
+    branches: ['production']
 
 PreRebase:
   MergedCommits:
