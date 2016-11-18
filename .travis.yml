@@ -42,5 +42,6 @@ after_success:
 matrix:
     include:
         - python: 3.5
-            addons:
-                srcclr: true
+          addons:
+             srcclr: true
+        
