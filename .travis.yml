@@ -1,5 +1,4 @@
 sudo: false  # Use container-based infrastructure
-
 # safelist
 branches:
   only:
